@@ -1,10 +1,15 @@
 #include <cstdio>
 
+volatile int i = 0;
+
 __attribute__ ((noinline))
 void
 function ()
 {
-  throw 1;
+  printf ("Entering function.\n");
+  if (i == 0)
+    throw 1;
+  printf ("Leaving function.\n");
 }
 
 int
